@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <EditText
+            android:id="@+id/editFirstName"
+            style="@style/AppTheme.ContactForm.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/first_name_hint"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/divider7"
+            style="@style/AppTheme.ContactInfo.HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editFirstName" />
+
+
+        <ImageView
+            android:id="@+id/personImage"
+            style="@style/AppTheme.ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_perm_identity_gray_smaller"
+            app:layout_constraintBottom_toBottomOf="@id/editFirstName"
+            app:layout_constraintEnd_toStartOf="@id/editFirstName"
+            app:layout_constraintTop_toTopOf="@id/editFirstName" />
+
+        <EditText
+            android:id="@+id/editLastName"
+            style="@style/AppTheme.ContactForm.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/last_name_hint"
+            app:layout_constraintStart_toStartOf="@id/editFirstName"
+            app:layout_constraintTop_toBottomOf="@id/divider7" />
+
+        <View
+            android:id="@+id/divider8"
+            style="@style/AppTheme.ContactInfo.HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editLastName" />
+
+
+        <EditText
+            android:id="@+id/editPhoneNumber"
+            style="@style/AppTheme.ContactForm.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="phone"
+            android:text="@string/phone_hint"
+            app:layout_constraintStart_toStartOf="@id/editLastName"
+            app:layout_constraintTop_toBottomOf="@id/divider8" />
+
+        <View
+            android:id="@+id/divider9"
+            style="@style/AppTheme.ContactInfo.HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editPhoneNumber" />
+
+
+        <ImageView
+            android:id="@+id/phoneImage"
+            style="@style/AppTheme.ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phone_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/editPhoneNumber"
+            app:layout_constraintEnd_toStartOf="@id/editPhoneNumber"
+            app:layout_constraintTop_toTopOf="@id/editPhoneNumber" />
+
+        <EditText
+            android:id="@+id/editEmailAddress"
+            style="@style/AppTheme.ContactForm.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:text="@string/email_hint"
+            app:layout_constraintStart_toStartOf="@id/editPhoneNumber"
+            app:layout_constraintTop_toBottomOf="@id/divider9" />
+
+        <View
+            android:id="@+id/divider10"
+            style="@style/AppTheme.ContactInfo.HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editEmailAddress" />
+
+
+        <ImageView
+            android:id="@+id/emailImage"
+            style="@style/AppTheme.ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/editEmailAddress"
+            app:layout_constraintEnd_toStartOf="@id/editEmailAddress"
+            app:layout_constraintTop_toTopOf="@id/editEmailAddress" />
+
+        <EditText
+            android:id="@+id/editAddress"
+            style="@style/AppTheme.ContactForm.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:text="@string/address_hint"
+            app:layout_constraintStart_toStartOf="@id/editEmailAddress"
+            app:layout_constraintTop_toBottomOf="@id/divider10" />
+
+        <View
+            android:id="@+id/divider11"
+            style="@style/AppTheme.ContactInfo.HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editAddress" />
+
+
+        <ImageView
+            android:id="@+id/locationImage"
+            style="@style/AppTheme.ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_place_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/editAddress"
+            app:layout_constraintEnd_toStartOf="@id/editAddress"
+            app:layout_constraintTop_toTopOf="@id/editAddress" />
+
+        <EditText
+            android:id="@+id/editWebsite"
+            style="@style/AppTheme.ContactForm.EditText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:text="@string/website_hint"
+            app:layout_constraintStart_toStartOf="@id/editAddress"
+            app:layout_constraintTop_toBottomOf="@id/divider11" />
+
+        <View
+            android:id="@+id/divider12"
+            style="@style/AppTheme.ContactInfo.HorizontalDivider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="?android:attr/listDivider"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/editWebsite" />
+
+
+        <ImageView
+            android:id="@+id/websiteImage"
+            style="@style/AppTheme.ImageView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_public_black_24dp"
+            app:layout_constraintBottom_toBottomOf="@id/editWebsite"
+            app:layout_constraintEnd_toStartOf="@id/editWebsite"
+            app:layout_constraintTop_toTopOf="@id/editWebsite" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/saveButton"
+            style="@style/AppTheme.ContactForm.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/save_button_label"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/divider12" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
