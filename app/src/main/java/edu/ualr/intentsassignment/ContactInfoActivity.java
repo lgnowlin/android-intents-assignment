@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.material.chip.Chip;
 
+import edu.ualr.intentsassignment.databinding.ActivityInfoBinding;
 import edu.ualr.intentsassignment.model.Contact;
 
 public class ContactInfoActivity extends AppCompatActivity {
@@ -25,10 +26,13 @@ public class ContactInfoActivity extends AppCompatActivity {
     private Chip emailButton;
     private Chip mapButton;
     private Chip websiteButton;
+    private ActivityInfoBinding mBinding;
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_info);
+        mBinding = ActivityInfoBinding.inflate(getLayoutInflater());
+        setContentView(mBinding.getRoot());
         Contact c = getIntent().getParcelableExtra(ContactFormActivity.EXTRA_CONTACT);
         callButton = findViewById(R.id.callChip);
         textButton = findViewById(R.id.textChip);
@@ -38,7 +42,7 @@ public class ContactInfoActivity extends AppCompatActivity {
         TextView name = findViewById(R.id.textName);
         final TextView phoneNum = findViewById(R.id.textPhone);
         final TextView emailAdd = findViewById(R.id.textEmailAddress);
-        TextView address = findViewById(R.id.textAddress);
+        final TextView address = findViewById(R.id.textAddress);
         final TextView website = findViewById(R.id.textWebsite);
         name.setText(c.getFullName());
         phoneNum.setText(c.getPhoneNumber());
@@ -64,6 +68,12 @@ public class ContactInfoActivity extends AppCompatActivity {
                 onEmailClick(emailAdd);
             }
         });
+        this.mapButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onMapClick(address);
+            }
+        });
         this.websiteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -74,13 +84,13 @@ public class ContactInfoActivity extends AppCompatActivity {
         }
 
     private void onCallClick(TextView phoneNum) {
-        String phoneNumberUri = "tel:" + phoneNum;
+        String phoneNumberUri = "tel:" + phoneNum.getText().toString();
         Intent intent = new Intent(Intent.ACTION_DIAL, Uri.parse(phoneNumberUri));
         startActivity(intent);
     }
 
     private void onTextClick(TextView phoneNum) {
-        String textUri = "smsto:" + phoneNum;
+        String textUri = "smsto:" + phoneNum.getText().toString();
         Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.parse(textUri));
         intent.putExtra("message", "Hello!");
         startActivity(intent);
@@ -89,7 +99,7 @@ public class ContactInfoActivity extends AppCompatActivity {
     private void onEmailClick(TextView emailAdd) {
         String emailSubject = "Hello";
         String emailText = "Hello!";
-        String emailReceiverList[] = {emailAdd.toString()};
+        String emailReceiverList[] = {emailAdd.getText().toString()};
         Intent intent = new Intent(Intent.ACTION_SEND);
         intent.setType("text/plain");
         intent.putExtra(Intent.EXTRA_EMAIL, emailReceiverList);
@@ -98,8 +108,14 @@ public class ContactInfoActivity extends AppCompatActivity {
         startActivity(Intent.createChooser(intent, "To complete action choose:"));
     }
 
+    private void onMapClick(TextView address) {
+        String addressUri = String.format("geo:0,0?q=(%s)", address.getText().toString());
+        Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(addressUri));
+        startActivity(intent);
+    }
+
     private void onWebsiteClick(TextView website) {
-        String webUri = website.toString();
+        String webUri = website.getText().toString();
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(webUri));
         startActivity(intent);
     }

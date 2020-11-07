@@ -6,6 +6,9 @@ android {
     dataBinding {
         enabled = true
     }
+    viewBinding {
+        enabled = true
+    }
     defaultConfig {
         applicationId "edu.ualr.intentsassignment"
         minSdkVersion 26
